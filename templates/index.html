@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Chatbot Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Chat Header -->
+        <div class="chat-header">
+            <div class="header-content">
+                <div class="bot-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="header-text">
+                    <h2>FAQ Assistant</h2>
+                    <p>Ask me anything about our services</p>
+                </div>
+            </div>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+
+        <!-- Chat Messages Area -->
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                <div class="message-content">
+                    <i class="fas fa-robot message-icon"></i>
+                    <div class="message-text">
+                        Hello! 👋 I'm your FAQ assistant. How can I help you today?
+                    </div>
+                </div>
+                <div class="message-time">Just now</div>
+            </div>
+        </div>
+
+        <!-- Suggested Questions -->
+        <div class="suggestions-container" id="suggestionsContainer"></div>
+
+        <!-- Chat Input Area -->
+        <div class="chat-input-container">
+            <button class="emoji-btn" onclick="toggleEmojiPicker()">
+                <i class="far fa-smile"></i>
+            </button>
+            <input type="text" 
+                   id="userInput" 
+                   placeholder="Type your question here..." 
+                   autocomplete="off">
+            <button class="send-btn" onclick="sendMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+
+        <!-- Emoji Picker (Simple version) -->
+        <div class="emoji-picker" id="emojiPicker" style="display: none;">
+            <span onclick="addEmoji('😊')">😊</span>
+            <span onclick="addEmoji('👍')">👍</span>
+            <span onclick="addEmoji('🎉')">🎉</span>
+            <span onclick="addEmoji('❤️')">❤️</span>
+            <span onclick="addEmoji('🤔')">🤔</span>
+            <span onclick="addEmoji('👋')">👋</span>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
